@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | 张梓峻的博客</title>
+  <title>Copy与mutableCopy的个人理解 | 张梓峻的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="武汉理工大学16级，现就职于字节跳动，擅长iOS客户端开发技能，深入阅读过各类主流框架源码。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张梓峻的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="Copy与mutableCopy的个人理解1. 相同点 都是将原有对象进行深拷贝（狭义） 这里的狭义上的深拷贝指的是在不考虑编译器在编译时对不可变对象进行copy时采取的优化策略：即将不可变对象的地址直接赋值给拷贝对象，因为不可变对象无法进行修改，也就不存在拷贝后原值改变的情况，所以为了效率，即不再重新开辟空间，编译器对不可变对象采取了浅拷贝的方式。  浅拷贝 ：只是对指针的拷贝，拷贝后两个指针指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Copy与mutableCopy的个人理解">
+<meta property="og:url" content="http://yoursite.com/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="张梓峻的博客">
-<meta property="og:description" content="武汉理工大学16级，现就职于字节跳动，擅长iOS客户端开发技能，深入阅读过各类主流框架源码。">
+<meta property="og:description" content="Copy与mutableCopy的个人理解1. 相同点 都是将原有对象进行深拷贝（狭义） 这里的狭义上的深拷贝指的是在不考虑编译器在编译时对不可变对象进行copy时采取的优化策略：即将不可变对象的地址直接赋值给拷贝对象，因为不可变对象无法进行修改，也就不存在拷贝后原值改变的情况，所以为了效率，即不再重新开辟空间，编译器对不可变对象采取了浅拷贝的方式。  浅拷贝 ：只是对指针的拷贝，拷贝后两个指针指">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-02T17:06:14.000Z">
+<meta property="article:modified_time" content="2020-05-02T17:16:01.125Z">
 <meta property="article:author" content="Zijun Zhang">
-<meta property="article:tag" content="客户端">
 <meta property="article:tag" content="Objective-C">
-<meta property="article:tag" content="Swift">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="程序猿">
-<meta property="article:tag" content="开源">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="张梓峻的博客" type="application/atom+xml">
@@ -160,36 +156,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Copy与mutableCopy的个人理解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-02T17:06:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">Copy与mutableCopy的个人理解</a>
+    <h1 class="article-title" itemprop="name">
+      Copy与mutableCopy的个人理解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-05-02T17:06:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Copy与mutableCopy的个人理解"><a href="#Copy与mutableCopy的个人理解" class="headerlink" title="Copy与mutableCopy的个人理解"></a>Copy与mutableCopy的个人理解</h1><h2 id="1-相同点"><a href="#1-相同点" class="headerlink" title="1. 相同点"></a>1. 相同点</h2><ul>
+<li><p><strong>都是将原有对象进行深拷贝（狭义）</strong></p>
+<p><em>这里的狭义上的深拷贝指的是在不考虑编译器在编译时对不可变对象进行copy时采取的优化策略：即将不可变对象的地址直接赋值给拷贝对象，因为不可变对象无法进行修改，也就不存在拷贝后原值改变的情况，所以为了效率，即不再重新开辟空间，编译器对不可变对象采取了浅拷贝的方式</em>。</p>
+<blockquote>
+<p><strong>浅拷贝</strong> ：只是对指针的拷贝，拷贝后两个指针指向同一个内存空间。</p>
+<p><strong>深拷贝</strong> ：不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。</p>
+</blockquote>
+</li>
+<li><p><strong>都是为了防止因原对象改变而造成拷贝对象改变的策略</strong></p>
+<p><em>不可变对象除外</em>。</p>
+</li>
+</ul>
+<h2 id="2-不同点"><a href="#2-不同点" class="headerlink" title="2.不同点"></a>2.不同点</h2><ul>
+<li><p><strong>无论是可变对象还是不可变对象进行copy，返回值一律是不可变对象（与被拷贝对象无关）</strong></p>
+<p><em>可变对象copy后自然会拷贝一个新的地址给不可变类型的拷贝对象（深拷贝），而不可变对象因为优化策略则为浅拷贝</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString* mstr&#x3D;[NSMutableString stringWithString:@&quot;1&quot;];</span><br><span class="line">NSString *str&#x3D;[mstr copy]; &#x2F;&#x2F;将对象copy给不可变对象</span><br><span class="line">[mstr appendFormat:@&quot;2&quot;];&#x2F;&#x2F;因为深拷贝，str不会因mstr改变而改变</span><br><span class="line">NSLog(@&quot;%@&quot;,str); &#x2F;&#x2F;输出1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSString* str0&#x3D;@&quot;1&quot;;</span><br><span class="line">NSMutableString *str1&#x3D;[str0 copy];</span><br><span class="line">NSLog(@&quot;%p:%p&quot;,str0,str1); &#x2F;&#x2F;0x100001040:0x100001040  浅拷贝</span><br></pre></td></tr></table></figure>
+
+<p><em>tips:当拷贝对象为可变对象时，使用copy会导致crash（在copy后使用append方法试图改变拷贝对象时）</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString* mstr0&#x3D;[NSMutableString stringWithString:@&quot;1&quot;];</span><br><span class="line">NSMutableString *mstr1&#x3D;[mstr0 copy]; &#x2F;&#x2F;将对象copy给可变对象</span><br><span class="line">[mstr0 appendFormat:@&quot;2&quot;];&#x2F;&#x2F;因为深拷贝，mstr1不会因mstr0改变而改变</span><br><span class="line">NSLog(@&quot;%@&quot;,str); &#x2F;&#x2F;输出1</span><br><span class="line">[mstr1 appendFormat:@&quot;2&quot;];&#x2F;&#x2F;crash,因为经过copy后mstr1已经变为了不可变对象（多态，NSMutableString是NSString的子类）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>无论是可变对象还是不可变对象进行mutableCopy，返回值一律是可变对象（与被拷贝对象无关，且狭义上深拷贝）</strong></p>
+<p><em>狭义上的深拷贝指的是对于非容器类，而非容器类只是深拷贝容器，而容器内的对象则为指针拷贝（浅拷贝）</em></p>
+<blockquote>
+<p>容器类:NSArray、NSDictionary、NSSet</p>
+<p>如果要对容器类进行完全深拷贝，一般使用对象方法：-(id)initWithArray: copyItems:</p>
+</blockquote>
+<p><em>tips:当拷贝对象为不可变对象时，使用mutableCopy会将不可变对象改为可变对象</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString* str0&#x3D;@&quot;1&quot;;</span><br><span class="line">NSString *str1&#x3D;[str0 mutableCopy]; &#x2F;&#x2F;将对象mutableCopy给不可变对象</span><br><span class="line">[(NSMutableString *)str1 appendFormat:@&quot;2&quot;];&#x2F;&#x2F;这里的str已经为可变对象，但编译器因为看不到可变对象的appendFormat方法，所以这里需要强转换为NSMutableString（若str这里不是真正指向可变对象，则会报错，但这里未报错，所以str已经指向了一个可变对象，即深拷贝）</span><br><span class="line">NSLog(@&quot;%@&quot;,str1); &#x2F;&#x2F;输出12</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p><strong>无论是copy还是mutableCopy都可以看作是为了让被拷贝对象与拷贝对象进行分离，互不干扰的一种策略（通过深拷贝实现，虽然有两个例外：编译器优化（其实无影响）和容器类的假深拷贝）。只不过一个返回的是不可变对象，而另一个返回的是可变对象，仅此而已</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,46 +266,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-02T07:22:48.300Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -267,8 +388,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
