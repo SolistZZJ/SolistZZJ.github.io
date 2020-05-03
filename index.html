@@ -192,33 +192,7 @@
 </li>
 <li><p><strong>都是为了防止因原对象改变而造成拷贝对象改变的策略</strong></p>
 <p><em>不可变对象除外</em>。</p>
-</li>
-</ul>
-<h2 id="2-不同点"><a href="#2-不同点" class="headerlink" title="2.不同点"></a>2.不同点</h2><ul>
-<li><p><strong>无论是可变对象还是不可变对象进行copy，返回值一律是不可变对象（与被拷贝对象无关）</strong></p>
-<p><em>可变对象copy后自然会拷贝一个新的地址给不可变类型的拷贝对象（深拷贝），而不可变对象因为优化策略则为浅拷贝</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString* mstr&#x3D;[NSMutableString stringWithString:@&quot;1&quot;];</span><br><span class="line">NSString *str&#x3D;[mstr copy]; &#x2F;&#x2F;将对象copy给不可变对象</span><br><span class="line">[mstr appendFormat:@&quot;2&quot;];&#x2F;&#x2F;因为深拷贝，str不会因mstr改变而改变</span><br><span class="line">NSLog(@&quot;%@&quot;,str); &#x2F;&#x2F;输出1</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSString* str0&#x3D;@&quot;1&quot;;</span><br><span class="line">NSMutableString *str1&#x3D;[str0 copy];</span><br><span class="line">NSLog(@&quot;%p:%p&quot;,str0,str1); &#x2F;&#x2F;0x100001040:0x100001040  浅拷贝</span><br></pre></td></tr></table></figure>
-
-<p><em>tips:当拷贝对象为可变对象时，使用copy会导致crash（在copy后使用append方法试图改变拷贝对象时）</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSMutableString* mstr0&#x3D;[NSMutableString stringWithString:@&quot;1&quot;];</span><br><span class="line">NSMutableString *mstr1&#x3D;[mstr0 copy]; &#x2F;&#x2F;将对象copy给可变对象</span><br><span class="line">[mstr0 appendFormat:@&quot;2&quot;];&#x2F;&#x2F;因为深拷贝，mstr1不会因mstr0改变而改变</span><br><span class="line">NSLog(@&quot;%@&quot;,str); &#x2F;&#x2F;输出1</span><br><span class="line">[mstr1 appendFormat:@&quot;2&quot;];&#x2F;&#x2F;crash,因为经过copy后mstr1已经变为了不可变对象（多态，NSMutableString是NSString的子类）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>无论是可变对象还是不可变对象进行mutableCopy，返回值一律是可变对象（与被拷贝对象无关，且狭义上深拷贝）</strong></p>
-<p><em>狭义上的深拷贝指的是对于非容器类，而非容器类只是深拷贝容器，而容器内的对象则为指针拷贝（浅拷贝）</em></p>
-<blockquote>
-<p>容器类:NSArray、NSDictionary、NSSet</p>
-<p>如果要对容器类进行完全深拷贝，一般使用对象方法：-(id)initWithArray: copyItems:</p>
-</blockquote>
-<p><em>tips:当拷贝对象为不可变对象时，使用mutableCopy会将不可变对象改为可变对象</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString* str0&#x3D;@&quot;1&quot;;</span><br><span class="line">NSString *str1&#x3D;[str0 mutableCopy]; &#x2F;&#x2F;将对象mutableCopy给不可变对象</span><br><span class="line">[(NSMutableString *)str1 appendFormat:@&quot;2&quot;];&#x2F;&#x2F;这里的str已经为可变对象，但编译器因为看不到可变对象的appendFormat方法，所以这里需要强转换为NSMutableString（若str这里不是真正指向可变对象，则会报错，但这里未报错，所以str已经指向了一个可变对象，即深拷贝）</span><br><span class="line">NSLog(@&quot;%@&quot;,str1); &#x2F;&#x2F;输出12</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p><strong>无论是copy还是mutableCopy都可以看作是为了让被拷贝对象与拷贝对象进行分离，互不干扰的一种策略（通过深拷贝实现，虽然有两个例外：编译器优化（其实无影响）和容器类的假深拷贝）。只不过一个返回的是不可变对象，而另一个返回的是可变对象，仅此而已</strong></p>
-
+        
       
 
       
@@ -304,15 +278,7 @@
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        
       
 
       
