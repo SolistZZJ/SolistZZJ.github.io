@@ -172,6 +172,95 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-IsEqual与Hash个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">IsEqual与Hash个人理解</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-05-08T15:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a>isEqual</h2><p>NSObject类的实例方法：<code>- (BOOL)isEqual:(id)object</code> 主要是根据对象的内存地址来判断两个对象是否相等，这里与<code>==</code> 效果相同。</p>
+<ul>
+<li><p>isEqualToString</p>
+<p>(BOOL)isEqualToString:(NSString *)aString 是NSString类的实例方法，它主要用于比较两个字符串中的内容是否相同，而非比较两个字符串所在内存地址。该方法常用。</p>
+</li>
+<li><p>自定义类的isEqual<br>在开发需求中，如果有比较两个类对象是否具有等同性时，通常会根据需求来对父类的isEqual进行改写，这里的做法通常是：</p>
+<ol>
+<li><p>先创建自定义的等同性判断方法，代码如下：</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Copy与mutableCopy的个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -234,95 +323,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IsEqual与Hash个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">IsEqual与Hash个人理解</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-02T17:06:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a>isEqual</h2><p>NSObject类的实例方法：<code>- (BOOL)isEqual:(id)object</code> 主要是根据对象的内存地址来判断两个对象是否相等，这里与<code>==</code> 效果相同。</p>
-<ul>
-<li><p>isEqualToString</p>
-<p>(BOOL)isEqualToString:(NSString *)aString 是NSString类的实例方法，它主要用于比较两个字符串中的内容是否相同，而非比较两个字符串所在内存地址。该方法常用。</p>
-</li>
-<li><p>自定义类的isEqual<br>在开发需求中，如果有比较两个类对象是否具有等同性时，通常会根据需求来对父类的isEqual进行改写，这里的做法通常是：</p>
-<ol>
-<li><p>先创建自定义的等同性判断方法，代码如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
         </p>
       
 
