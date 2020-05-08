@@ -172,6 +172,141 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-IsEqual与Hash个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">IsEqual与Hash个人理解</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-05-08T15:12:12.582Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IsEqual与Hash个人理解"><a href="#IsEqual与Hash个人理解" class="headerlink" title="IsEqual与Hash个人理解"></a>IsEqual与Hash个人理解</h1><h2 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a>isEqual</h2><p>NSObject类的实例方法：<code>- (BOOL)isEqual:(id)object</code> 主要是根据对象的内存地址来判断两个对象是否相等，这里与<code>==</code>效果相同。</p>
+<ul>
+<li><p>isEqualToString</p>
+<figure class="highlight plain"><figcaption><span>(BOOL)isEqualToString:(NSString *)aString``` 是NSString类的实例方法，它主要用于比较两个字符串中的内容是否相同，而非比较两个字符串所在内存地址。该方法常用。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 自定义类的isEqual</span><br><span class="line"></span><br><span class="line">  在开发需求中，如果有比较两个类对象是否具有等同性时，通常会根据需求来对父类的isEqual进行改写，这里的做法通常是：</span><br><span class="line"></span><br><span class="line">  1. 先创建自定义的等同性判断方法，代码如下：  &lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">     &#96;</span><br></pre></td></tr></table></figure>
+<p>   -(BOOL)isEqualToStudent:(Student *)otherStudent{</p>
+<pre><code>if(self == otherStudent)
+    return YES;
+if(![_name isEqualToString:otherStudent.name])
+    return NO;
+if(_age != otherStudent.age)
+    return NO;
+return YES;</code></pre><p>   }</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 在编写完判定方法后，应改写类中的isEqual实例方法。如果传入的对象为同一个类时，采用刚刚写的自定义方法来判定，否则就交给父类判断：</span><br></pre></td></tr></table></figure>
+<p>   -(BOOL)isEqual:(id)object{</p>
+<pre><code>if([self class] == [object class])
+    return [self isEqualToStudent:(Student *)object];
+else
+    return [super isEqual:object];</code></pre><p>   }</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Hash</span><br><span class="line"></span><br><span class="line">Hash主要是用于NSMutableSet中的判断添加的新对象是否已经存在了容器当中，如果不存在，则将新对象放入Set容器中，而判断的依据就是根据实例对象的Hash属性。</span><br><span class="line"></span><br><span class="line">但是因为不同对象的Hash值会有冲突的可能性（相同的对象Hash值一定相同，这里的相同指的是内存地址相同），所以最后如果哈希值发生冲突的话，则会调用类中的isEqual方法进行等同性判断。</span><br><span class="line"></span><br><span class="line">&gt; 既然都会调用isEqual方法，那么为什么不直接按顺序遍历set容器，依次调用isEqual方法？</span><br><span class="line">&gt;</span><br><span class="line">&gt; **答：首先set容器是非顺序容器，它的内存空间结构不是按顺序存储的，如果按插入的顺序遍历，开支很大（当然set的插入是无顺序的）。其次除非是大量数据的存储才会发生冲突的可能，在少量数据的情况下基本上不会出现依次遍历冲突对象的isEqual方法的冲突情况。这样看来以O（1）的时间复杂度就可以完成的任务，当然就选择是它了。**</span><br><span class="line"></span><br><span class="line">**在NSObject对象中，Hash值是根据对象所在的内存空间来进行计算的。所以在修改了isEqual方法后，如果没有修改Hash的setter方法，系统在执行set容器操作该对象时，仍然会以内存地址为准来判断两个对象是否相同。所以为了防止出现这种情况，在修改等同性判断方法的时候应顺便修改Hash的setter方法** </span><br><span class="line"></span><br><span class="line">* 自定义Hash方法</span><br><span class="line"></span><br><span class="line">  当自定义完isEqual后，一般为了防止后面的开发用到有关set容器出现意外，所以一般都会对Hash的Setter方法进行修改。代码如下：</span><br></pre></td></tr></table></figure>
+<p>-(NSUInteger)hash{</p>
+<pre><code>//这里的字符串只要能体现出类对象的name和age即可（依需求而定）
+NSString* stringToHash=[NSString stringWithFormat:@&quot;%@ %i&quot;,_name,_age];
+return [stringToHash hash];</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">但这里有个弊端，因为在这里新建一个字符串的开销很大（与返回一个属性值相比较）。所以一般采取下面这种策略：</span><br></pre></td></tr></table></figure>
+<p>-(NSUInteger)hash{</p>
+<pre><code>NSUInteger nameHash=[_name hash];
+NSUInteger ageHash=_age;
+return nameHash^ageHash;</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  这种方法既考虑了开销也考虑了属性的相关性和随机性。---------Effective OC</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">* Hash的调用顺序</span><br><span class="line"></span><br><span class="line">  例子如下:</span><br></pre></td></tr></table></figure>
+<p>//Student.m<br>-(BOOL)isEqualToStudent:(Student *)otherStudent{</p>
+<pre><code>if(self == otherStudent){
+    NSLog(@&quot;(%@:%i)与(%@:%i)冲突了&quot;,_name,_age,otherStudent.name,otherStudent.age);
+    return YES;
+}
+if(![_name isEqualToString:otherStudent.name])
+    return NO;
+if(_age != otherStudent.age)
+    return NO;
+NSLog(@&quot;[%@:%i]与[%@:%i]冲突了&quot;,_name,_age,otherStudent.name,otherStudent.age);
+return YES;</code></pre><p>}</p>
+<p>-(BOOL)isEqual:(id)object{</p>
+<pre><code>if([self class] == [object class])
+    return [self isEqualToStudent:(Student *)object];
+else
+    return [super isEqual:object];</code></pre><p>}</p>
+<p>-(NSUInteger)hash{</p>
+<pre><code>return _age;</code></pre><p>}</p>
+<p>-(NSString *)description{</p>
+<pre><code>return [NSString stringWithFormat:@&quot;%@:%i&quot;,_name,_age ];</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>//main.m<br>Student* stu1 = [[Student alloc] initWithName:@”小明” age:10];<br>Student* stu2 = [[Student alloc] initWithName:@”小明” age:10];<br>Student* stu3 = [[Student alloc] initWithName:@”小明” age:0];</p>
+<p>NSMutableSet* set = [NSMutableSet set];</p>
+<p>[set addObject:stu1]; //步骤1<br>[set addObject:stu2]; //步骤2<br>[set addObject:stu3]; //步骤3<br>NSLog(@”%@”,set);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出结果：</span><br></pre></td></tr></table></figure>
+<p>2020-05-08 22:50:12.172207+0800 effective-OC-test[83370:76838657] [小明:10]与[小明:10]冲突了<br>2020-05-08 22:50:12.172542+0800 effective-OC-test[83370:76838657] {(</p>
+<pre><code>小明:0,
+小明:10</code></pre><p>)}<br>Program ended with exit code: 0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 当执行步骤1时，会先去调用hash方法得到对象的哈希值，因为set容器为空，所以直接根据hash值将对象存入内存当中。stu1成功存入容器中；</span><br><span class="line"></span><br><span class="line">2. 当执行步骤2时，同样会先去调用hash方法得到哈希值，因为这里的hash值与age有关，stu1.age&#x3D;&#x3D;stu2.age,所以两个对象的哈希值相同，**这时候就回去调用isEqual方法去判断是否两个对象是等同的。**又因为我这里设置的当姓名和年龄一致时，即判断为同一对象，所以这里会打印出冲突。并且不会将stu2存入容器中；</span><br><span class="line"></span><br><span class="line">3. 当执行步骤3时，调用完hash方法后，因为age不同，所以得到的hash值不同（很小几率会出现相同），从而直接通过的到的hash值去分配内存空间。stu3成功存入容器中。</span><br><span class="line"></span><br><span class="line">4. 如果这里将isEqualToStudent的判断条件修改一下,将年龄处修改为：</span><br></pre></td></tr></table></figure>
+<p>   if(_age == otherStudent.age)</p>
+<pre><code>return NO;</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这时候，再执行一遍，输出如下：</span><br></pre></td></tr></table></figure>
+<p>   2020-05-08 23:02:13.177534+0800 effective-OC-test[84327:76859194] {(</p>
+<pre><code>小明:0,
+小明:10,
+小明:10</code></pre><p>   )}</p>
+<pre><code>
+这时候就会发现stu2已经成功存入了容器中，因为在hash值冲突后调用isEqualToStudent方法后，因为两个年龄一致，返回了NO，说明两个对象这时候已经被当成了不同的两个对象。
+</code></pre></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>isEqual方法是用来判断类对象的等同性。在自定义等同性判断时，如果判断对象与该对象同属一个类时，就调用自己编写的判定方法，否则就交给父类的isEqual来解决。</li>
+<li>Hash值一般与容器相关，特别是Set容器。set容器通过对象的哈希值来分配内存地址，当遇到hash冲突后时会调用isEqual来进行二次验证。</li>
+<li>原生NSObject类的Hash值和isEqual方法都是根据对象的内存地址得到的结果。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Copy与mutableCopy的个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
