@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>“OC属性与实例变量” | 张梓峻的博客</title>
+  <title>OC属性与实例变量 | 张梓峻的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="OC属性与实例变量无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：  属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的属性  其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“OC属性与实例变量”">
-<meta property="og:url" content="http://yoursite.com/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/index.html">
+<meta property="og:title" content="OC属性与实例变量">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/index.html">
 <meta property="og:site_name" content="张梓峻的博客">
 <meta property="og:description" content="OC属性与实例变量无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：  属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的属性  其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-13T08:14:44.000Z">
-<meta property="article:modified_time" content="2020-05-13T08:18:38.127Z">
+<meta property="article:modified_time" content="2020-05-13T08:21:05.654Z">
 <meta property="article:author" content="Zijun Zhang">
 <meta property="article:tag" content="Objective-C">
 <meta property="article:tag" content="iOS">
@@ -167,19 +167,19 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-“OC属性与实例变量”" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-OC属性与实例变量" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      “OC属性与实例变量”
+      OC属性与实例变量
     </h1>
   
 
         
-        <a href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" class="archive-article-date">
+        <a href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/" class="archive-article-date">
   	<time datetime="2020-05-13T08:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
@@ -192,17 +192,15 @@ var _hmt = _hmt || [];
 <p>属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的<strong>属性</strong></p>
 </blockquote>
 <p>其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进行读写操作。原因如下：</p>
-<a id="more"></a>
-
 <ul>
-<li><p>直接读写实例变量实质上是在编译的过程中，对.h文件中声明的各个实例变量的<strong>偏移量</strong>进行操作。众所周知，OC属于运行时的动态语言。如果在运行时再添加实例变量，则原来的实际偏移量就会出现错误，<strong>内存布局的改变</strong>会导致直接读写实例变量出现错误。</p>
-<p>但是如果将实例变量的读写修改为通过getter和setter方式的通知（OC的方法可看作为消息传递），而这些对象方法则存于类对象中，这样就可以解决上述问题。</p>
+<li>直接读写实例变量实质上是在编译的过程中，对.h文件中声明的各个实例变量的<strong>偏移量</strong>进行操作。众所周知，OC属于运行时的动态语言。如果在运行时再添加实例变量，则原来的实际偏移量就会出现错误，<strong>内存布局的改变</strong>会导致直接读写实例变量出现错误。<br>但是如果将实例变量的读写修改为通过getter和setter方式的通知（OC的方法可看作为消息传递），而这些对象方法则存于类对象中，这样就可以解决上述问题。</li>
+</ul>
+<a id="more"></a>
 <blockquote>
 <p>OC将实例变量当作一种存储偏移量所用的“特殊变量”，并将其交给类对象来进行保管，这样做的好处就是系统会在运行期进行查找，若类的定义在运行期改变了，那么存储的偏移量也就随之改变。</p>
 </blockquote>
-</li>
-<li><p>通过setter方法来修改类的实例变量，还可以触发属性的KVO。如果是直接改变实例变量，则无法触发。</p>
-</li>
+<ul>
+<li>通过setter方法来修改类的实例变量，还可以触发属性的KVO。如果是直接改变实例变量，则无法触发。</li>
 </ul>
 <h2 id="属性的自动合成"><a href="#属性的自动合成" class="headerlink" title="属性的自动合成"></a>属性的自动合成</h2><p>使用 @property+类型名+属性名 可以让编译器自动编写这些属性需要的方法。</p>
 <p>例如：</p>
@@ -337,7 +335,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/" alt="微信分享二维码">
     </div>
 </div>
 

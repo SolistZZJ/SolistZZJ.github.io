@@ -172,19 +172,19 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-“OC属性与实例变量”" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-OC属性与实例变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/">“OC属性与实例变量”</a>
+      <a class="article-title" href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/">OC属性与实例变量</a>
     </h1>
   
 
         
-        <a href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" class="archive-article-date">
+        <a href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/" class="archive-article-date">
   	<time datetime="2020-05-13T08:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
@@ -197,6 +197,9 @@ var _hmt = _hmt || [];
 <p>属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的<strong>属性</strong></p>
 </blockquote>
 <p>其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进行读写操作。原因如下：</p>
+<ul>
+<li>直接读写实例变量实质上是在编译的过程中，对.h文件中声明的各个实例变量的<strong>偏移量</strong>进行操作。众所周知，OC属于运行时的动态语言。如果在运行时再添加实例变量，则原来的实际偏移量就会出现错误，<strong>内存布局的改变</strong>会导致直接读写实例变量出现错误。<br>但是如果将实例变量的读写修改为通过getter和setter方式的通知（OC的方法可看作为消息传递），而这些对象方法则存于类对象中，这样就可以解决上述问题。</li>
+</ul>
         
       
 
@@ -228,7 +231,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/">展开全文 >></a>
         </p>
       
 
