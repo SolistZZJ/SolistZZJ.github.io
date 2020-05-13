@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 基础 | 张梓峻的博客</title>
+  <title>“OC属性与实例变量” | 张梓峻的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="武汉理工大学16级，现就职于字节跳动，擅长iOS客户端开发技能，深入阅读过各类主流框架源码。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张梓峻的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="OC属性与实例变量无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：  属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的属性  其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“OC属性与实例变量”">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/index.html">
 <meta property="og:site_name" content="张梓峻的博客">
-<meta property="og:description" content="武汉理工大学16级，现就职于字节跳动，擅长iOS客户端开发技能，深入阅读过各类主流框架源码。">
+<meta property="og:description" content="OC属性与实例变量无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：  属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的属性  其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-13T08:14:44.000Z">
+<meta property="article:modified_time" content="2020-05-13T08:18:38.127Z">
 <meta property="article:author" content="Zijun Zhang">
-<meta property="article:tag" content="客户端">
 <meta property="article:tag" content="Objective-C">
-<meta property="article:tag" content="Swift">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="程序猿">
-<meta property="article:tag" content="开源">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="张梓峻的博客" type="application/atom+xml">
@@ -170,36 +167,107 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-“OC属性与实例变量”" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      “OC属性与实例变量”
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" class="archive-article-date">
+
+        
+        <a href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" class="archive-article-date">
   	<time datetime="2020-05-13T08:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/">“OC属性与实例变量”</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="OC属性与实例变量"><a href="#OC属性与实例变量" class="headerlink" title="OC属性与实例变量"></a>OC属性与实例变量</h1><p>无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：</p>
+<blockquote>
+<p>属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的<strong>属性</strong></p>
+</blockquote>
+<p>其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进行读写操作。原因如下：</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<ul>
+<li><p>直接读写实例变量实质上是在编译的过程中，对.h文件中声明的各个实例变量的<strong>偏移量</strong>进行操作。众所周知，OC属于运行时的动态语言。如果在运行时再添加实例变量，则原来的实际偏移量就会出现错误，<strong>内存布局的改变</strong>会导致直接读写实例变量出现错误。</p>
+<p>但是如果将实例变量的读写修改为通过getter和setter方式的通知（OC的方法可看作为消息传递），而这些对象方法则存于类对象中，这样就可以解决上述问题。</p>
+<blockquote>
+<p>OC将实例变量当作一种存储偏移量所用的“特殊变量”，并将其交给类对象来进行保管，这样做的好处就是系统会在运行期进行查找，若类的定义在运行期改变了，那么存储的偏移量也就随之改变。</p>
+</blockquote>
+</li>
+<li><p>通过setter方法来修改类的实例变量，还可以触发属性的KVO。如果是直接改变实例变量，则无法触发。</p>
+</li>
+</ul>
+<h2 id="属性的自动合成"><a href="#属性的自动合成" class="headerlink" title="属性的自动合成"></a>属性的自动合成</h2><p>使用 @property+类型名+属性名 可以让编译器自动编写这些属性需要的方法。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property NSString *autoCreatedStr</span><br></pre></td></tr></table></figure>
+
+<p>在添加了property关键字后，编译器会自动合成以下的setter和getter方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void) setAutoCreatedStr:(NSString *)autoCreatedStr;</span><br><span class="line">- (NSString *) autoCreatedStr;</span><br></pre></td></tr></table></figure>
+
+<p>在自动合成属性前，编译器会自动为属性提供对应的实例变量，实例变量通常以下划线开头+属性名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *_autoCreatedStr;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="synthesize关键字"><a href="#synthesize关键字" class="headerlink" title="@synthesize关键字"></a>@synthesize关键字</h2><p>在iOS6之前，编译器是不会在设置完@Property后自动生成实例变量的，当设置完属性后还要额外再加上一句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@synthesize autoCreatedStr &#x3D; _autocreatedStr;</span><br></pre></td></tr></table></figure>
+
+<p>加上这句以后，才能完成添加名为“_autoCreatedStr”的实例变量。</p>
+<p>但是在iOS6以后，LLVM编译器就会为每个属性添加上对应的@synthesize关键字，并且默认实例名为：下划线开头+属性名的格式。</p>
+<p>所以在一般的开发中，只有想要自定义实例变量名的时候，才会在.m文件中手动添加@synthesize来覆盖原来的自动合成的以下划线开头的变量名。（一般来说都<strong>无需修改</strong>默认的实例变量名）</p>
+<h2 id="dynamic关键字"><a href="#dynamic关键字" class="headerlink" title="@dynamic关键字"></a>@dynamic关键字</h2><p>dynamic关键字主要是用来通知编译器无需因为@property关键字而自动合成属性（包括生成实例变量和合成getter、setter方法）。</p>
+<p>在编译的过程中，编译器不会因为没有定义读写方法而报错，因为@dynamic关键字默认了读写方法会在运行时生成。例如在分类中利用关联对象来给分类添加属性等。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><strong>OC开发中，通常不会直接对实例变量操作，而是通过getter和setter方法来对实例变量来进行读写。</strong></li>
+<li><strong>ios6后property关键字会自动合成实例变量和读写方法。</strong></li>
+<li><strong>dynamic关键字大部分情况其实用不到。</strong></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -219,111 +287,106 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-08T15:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IsEqual与Hash个人理解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">IsEqual与Hash个人理解</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-02T17:06:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">Copy与mutableCopy的个人理解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -343,9 +406,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

@@ -172,6 +172,92 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-“OC属性与实例变量”" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/">“OC属性与实例变量”</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/" class="archive-article-date">
+  	<time datetime="2020-05-13T08:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="OC属性与实例变量"><a href="#OC属性与实例变量" class="headerlink" title="OC属性与实例变量"></a>OC属性与实例变量</h1><p>无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：</p>
+<blockquote>
+<p>属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的<strong>属性</strong></p>
+</blockquote>
+<p>其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进行读写操作。原因如下：</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/%E2%80%9COC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E2%80%9D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IsEqual与Hash个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -192,7 +278,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a>isEqual</h2><p>NSObject类的实例方法：<code>- (BOOL)isEqual:(id)object</code> 主要是根据对象的内存地址来判断两个对象是否相等，这里与<code>==</code> 效果相同。</p>
+        <h1 id="IsEqual与Hash个人理解"><a href="#IsEqual与Hash个人理解" class="headerlink" title="IsEqual与Hash个人理解"></a>IsEqual与Hash个人理解</h1><h2 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a>isEqual</h2><p>NSObject类的实例方法：<code>- (BOOL)isEqual:(id)object</code> 主要是根据对象的内存地址来判断两个对象是否相等，这里与<code>==</code> 效果相同。</p>
 <ul>
 <li><p>isEqualToString</p>
 <p>(BOOL)isEqualToString:(NSString *)aString 是NSString类的实例方法，它主要用于比较两个字符串中的内容是否相同，而非比较两个字符串所在内存地址。该方法常用。</p>
