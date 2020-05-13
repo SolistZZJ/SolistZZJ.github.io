@@ -368,7 +368,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-相同点"><a href="#1-相同点" class="headerlink" title="1. 相同点"></a>1. 相同点</h2><ul>
+        <h1 id="Copy与mutableCopy的个人理解"><a href="#Copy与mutableCopy的个人理解" class="headerlink" title="Copy与mutableCopy的个人理解"></a>Copy与mutableCopy的个人理解</h1><h2 id="1-相同点"><a href="#1-相同点" class="headerlink" title="1. 相同点"></a>1. 相同点</h2><ul>
 <li><p><strong>都是将原有对象进行深拷贝（狭义）</strong></p>
 <p><em>这里的狭义上的深拷贝指的是在不考虑编译器在编译时对不可变对象进行copy时采取的优化策略：即将不可变对象的地址直接赋值给拷贝对象，因为不可变对象无法进行修改，也就不存在拷贝后原值改变的情况，所以为了效率，即不再重新开辟空间，编译器对不可变对象采取了浅拷贝的方式</em>。</p>
 <blockquote>
