@@ -15,16 +15,16 @@
 <meta property="og:site_name" content="张梓峻的博客">
 <meta property="og:description" content="再探NSStringNSString应该是oc开发中最常用的一个数据类型了，这次对该类型再进行一次全方位的探索与总结。  NSString本质上属于OC类对象，继承于NSObject，遵守NSCopying, NSMutableCopying, NSSecureCoding协议。 NSMutableString与之类似，唯一不同的是它继承于NSString。  通过语法糖创建NSString大部分">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/14/%E5%86%8D%E6%8E%A2NSString/solist/blog/source/_posts/%E5%86%8D%E6%8E%A2NSString/NSStringStorage.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/14/%E5%86%8D%E6%8E%A2NSString/NSStringStorage.png">
 <meta property="article:published_time" content="2020-05-14T11:46:49.000Z">
-<meta property="article:modified_time" content="2020-05-14T11:48:50.092Z">
+<meta property="article:modified_time" content="2020-05-14T11:50:58.412Z">
 <meta property="article:author" content="Zijun Zhang">
 <meta property="article:tag" content="Objective-C">
 <meta property="article:tag" content="iOS">
 <meta property="article:tag" content="基础">
 <meta property="article:tag" content="NSString">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/14/%E5%86%8D%E6%8E%A2NSString/solist/blog/source/_posts/%E5%86%8D%E6%8E%A2NSString/NSStringStorage.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/14/%E5%86%8D%E6%8E%A2NSString/NSStringStorage.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -222,7 +222,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>那么为什么原有对象会浪费内存？我们可以拿NSNumber对象来举个例子。众所周知，NSNumber的占位与CPU的位数有关。在32位机器上整数会占4个字节，64位上则占8个字节。所以直接采取原有对象类型来存储，从32位机迁移到64位机后，NSNumber的对象占用的内存空间就会加倍。</p>
 <p>具体存储策略如下图所示：</p>
-<p><img src="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/solist/blog/source/_posts/%E5%86%8D%E6%8E%A2NSString/NSStringStorage.png" alt="NSStringStorage"></p>
+<p><img src="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/NSStringStorage.png" alt="NSStringStorage"></p>
 <p>在64位机器上，我们可以将采用标签指针策略的对象看成由两个部分的指针组成。第一个部分用来存储特殊标记，表示这是一个采用了标签指针策略的指针（不指向任何内存地址），第二个部分剩余的内存大小都可以用作存储数据。</p>
 <p>但是当字符串内容超过了指针范围后，就不会再采取标签指针的策略了。例如初始化一个很长的德语单词：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSString* str&#x3D;[NSString stringWithFormat:@&quot;Kraftfahrzeughaftpflichtversicherung&quot;];</span><br><span class="line">NSLog(@&quot;%@-&gt;%@-&gt;%@-&gt;%@:%p&quot;,[str class],[[str class] superclass],[[[str class] superclass] superclass],[[[[str class] superclass] superclass] superclass],str);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;打印如下：</span><br><span class="line">__NSCFString-&gt;NSMutableString-&gt;NSString-&gt;NSObject:0x103825090</span><br></pre></td></tr></table></figure>
