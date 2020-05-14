@@ -170,6 +170,100 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-再探NSString" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/">再探NSString</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/" class="archive-article-date">
+  	<time datetime="2020-05-14T11:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="再探NSString"><a href="#再探NSString" class="headerlink" title="再探NSString"></a>再探NSString</h1><p>NSString应该是oc开发中最常用的一个数据类型了，这次对该类型再进行一次全方位的探索与总结。</p>
+<blockquote>
+<p>NSString本质上属于OC类对象，继承于NSObject，遵守NSCopying, NSMutableCopying, NSSecureCoding协议。</p>
+<p>NSMutableString与之类似，唯一不同的是它继承于NSString。</p>
+</blockquote>
+<h2 id="通过语法糖创建NSString"><a href="#通过语法糖创建NSString" class="headerlink" title="通过语法糖创建NSString"></a>通过语法糖创建NSString</h2><p>大部分的开发中，我们都会使用@+双引号的方式创建NSString对象。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString* str&#x3D;@&quot;i am a single str&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>这种创建方式创建出来的类型是什么呢？它存储的空间地址又在哪里呢？不妨打印一下：</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NSString</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-OC属性与实例变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -534,6 +628,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NSString</a>
               </li>
             
             <div class="clearfix"></div>
