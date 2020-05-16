@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>浅析Block闭包 | 张梓峻的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="浅析Block闭包 简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。  Block类型写法： 返回值+（^块名）+（参数）&#x3D;  ^（参数）{ 内容 } 如下所示: 123int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&amp;#123;    return a + b;&amp;#125;;">
+  <meta name="description" content="浅析Block闭包 简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。  Block类型写法： 返回值+（^Block名）+（参数）&#x3D;  ^（参数）{ 内容 } 如下所示: 123int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&amp;#123;    return a + b;&amp;#125">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅析Block闭包">
 <meta property="og:url" content="http://yoursite.com/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/index.html">
 <meta property="og:site_name" content="张梓峻的博客">
-<meta property="og:description" content="浅析Block闭包 简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。  Block类型写法： 返回值+（^块名）+（参数）&#x3D;  ^（参数）{ 内容 } 如下所示: 123int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&amp;#123;    return a + b;&amp;#125;;">
+<meta property="og:description" content="浅析Block闭包 简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。  Block类型写法： 返回值+（^Block名）+（参数）&#x3D;  ^（参数）{ 内容 } 如下所示: 123int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&amp;#123;    return a + b;&amp;#125">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/blockStructure.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/retainCycle.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/blockRetainCycle.png">
 <meta property="article:published_time" content="2020-05-16T11:32:29.000Z">
-<meta property="article:modified_time" content="2020-05-16T11:35:25.711Z">
+<meta property="article:modified_time" content="2020-05-16T11:41:22.605Z">
 <meta property="article:author" content="Zijun Zhang">
 <meta property="article:tag" content="Objective-C">
 <meta property="article:tag" content="iOS">
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
 <p>简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。</p>
 </blockquote>
 <p><strong>Block类型写法：</strong></p>
-<p>返回值+（^块名）+（参数）=  ^（参数）{ 内容 }</p>
+<p>返回值+（^Block名）+（参数）=  ^（参数）{ 内容 }</p>
 <p>如下所示:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 

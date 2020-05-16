@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
 <p>简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。</p>
 </blockquote>
 <p><strong>Block类型写法：</strong></p>
-<p>返回值+（^块名）+（参数）=  ^（参数）{ 内容 }</p>
+<p>返回值+（^Block名）+（参数）=  ^（参数）{ 内容 }</p>
 <p>如下所示:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
