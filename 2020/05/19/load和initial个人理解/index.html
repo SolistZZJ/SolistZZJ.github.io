@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>张梓峻的博客</title>
+  <title>load和initial个人理解 | 张梓峻的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="武汉理工大学16级，现就职于字节跳动，擅长iOS客户端开发技能。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张梓峻的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="load和initial个人理解在上次面试字节的时候还记得面试官曾问过这个问题，当时虽然大体上答对了，但回想起来还是有些地方有些模糊，所以这次再对这个问题进行一下深入的分析。 load方法 +(void)load  123456789101112131415161718192021222324252627282930&#96;&#96;&#96;&#96;load&#96;&#96;&#96;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="load和initial个人理解">
+<meta property="og:url" content="http://yoursite.com/2020/05/19/load%E5%92%8Cinitial%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="张梓峻的博客">
-<meta property="og:description" content="武汉理工大学16级，现就职于字节跳动，擅长iOS客户端开发技能。">
+<meta property="og:description" content="load和initial个人理解在上次面试字节的时候还记得面试官曾问过这个问题，当时虽然大体上答对了，但回想起来还是有些地方有些模糊，所以这次再对这个问题进行一下深入的分析。 load方法 +(void)load  123456789101112131415161718192021222324252627282930&#96;&#96;&#96;&#96;load&#96;&#96;&#96;&amp;#">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-19T09:58:55.000Z">
+<meta property="article:modified_time" content="2020-05-19T10:00:04.767Z">
 <meta property="article:author" content="Zijun Zhang">
-<meta property="article:tag" content="客户端">
 <meta property="article:tag" content="Objective-C">
-<meta property="article:tag" content="Swift">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="程序猿">
-<meta property="article:tag" content="开源">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
   
   
@@ -168,16 +165,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-load和initial个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-load和initial个人理解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/19/load%E5%92%8Cinitial%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">load和initial个人理解</a>
+    <h1 class="article-title" itemprop="name">
+      load和initial个人理解
     </h1>
   
 
@@ -223,284 +218,36 @@ var _hmt = _hmt || [];
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/19/load%E5%92%8Cinitial%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我恰饭<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅析Block闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/">浅析Block闭包</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/" class="archive-article-date">
-  	<time datetime="2020-05-16T11:32:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="浅析Block闭包"><a href="#浅析Block闭包" class="headerlink" title="浅析Block闭包"></a>浅析Block闭包</h1><blockquote>
-<p>简单来说，block就是将函数及其上下文封装起来的对象，从功能上可以把它看作是C++中的匿名函数，也可称之为块。</p>
-</blockquote>
-<p><strong>Block类型写法：</strong></p>
-<p>返回值+（^Block名）+（参数）=  ^（参数）{ 内容 }</p>
-<p>如下所示:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int (^myBlock)(int a, int b) &#x3D; ^(int a, int b)&#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Block结构"><a href="#Block结构" class="headerlink" title="Block结构"></a>Block结构</h2><h3 id="Block存储区域"><a href="#Block存储区域" class="headerlink" title="Block存储区域"></a>Block存储区域</h3><p>Block本质上也是OC对象，所以每个Block对象也有isa指针指向它们的类对象。根据Block类对象存储的内存空间的不同可分为三种不同的类，分别是：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Block</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-再探NSString" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/">再探NSString</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/" class="archive-article-date">
-  	<time datetime="2020-05-14T11:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="再探NSString"><a href="#再探NSString" class="headerlink" title="再探NSString"></a>再探NSString</h1><p>NSString应该是oc开发中最常用的一个数据类型了，这次对该类型再进行一次全方位的探索与总结。</p>
-<blockquote>
-<p>NSString本质上属于OC类对象，继承于NSObject，遵守NSCopying, NSMutableCopying, NSSecureCoding协议。</p>
-<p>NSMutableString与之类似，唯一不同的是它继承于NSString。</p>
-</blockquote>
-<h2 id="通过语法糖创建NSString"><a href="#通过语法糖创建NSString" class="headerlink" title="通过语法糖创建NSString"></a>通过语法糖创建NSString</h2><p>大部分的开发中，我们都会使用@+双引号的方式创建NSString对象。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString* str&#x3D;@&quot;i am a single str&quot;;</span><br></pre></td></tr></table></figure>
-
-<p>这种创建方式创建出来的类型是什么呢？它存储的空间地址又在哪里呢？不妨打印一下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NSString</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/14/%E5%86%8D%E6%8E%A2NSString/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OC属性与实例变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/">OC属性与实例变量</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-05-13T08:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="OC属性与实例变量"><a href="#OC属性与实例变量" class="headerlink" title="OC属性与实例变量"></a>OC属性与实例变量</h1><p>无论是java还是c++这些面向对象的语言都会有属性这一概念，通常而言，对于java属性和实例变量没有什么区别，java官方定义的属性如下：</p>
-<blockquote>
-<p>属性是指get或者set方法名 去掉get或者set后，把剩余的部分首字母改为小写后，即为这个类的<strong>属性</strong></p>
-</blockquote>
-<p>其实objective-C与之类似，但是在一般的开发中，oc类的实例变量都不会被直接读写，而是通过getter和setter方法来进行读写操作。原因如下：</p>
-<ul>
-<li>直接读写实例变量实质上是在编译的过程中，对.h文件中声明的各个实例变量的<strong>偏移量</strong>进行操作。众所周知，OC属于运行时的动态语言。如果在运行时再添加实例变量，则原来的实际偏移量就会出现错误，<strong>内存布局的改变</strong>会导致直接读写实例变量出现错误。<br>但是如果将实例变量的读写修改为通过getter和setter方式的通知（OC的方法可看作为消息传递），而这些对象方法则存于类对象中，这样就可以解决上述问题。</li>
-</ul>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -528,16 +275,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/OC%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/19/load%E5%92%8Cinitial%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/16/%E6%B5%85%E6%9E%90Block%E9%97%AD%E5%8C%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅析Block闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -557,188 +363,14 @@ var _hmt = _hmt || [];
 
 
 
-
   
-    <article id="post-IsEqual与Hash个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">IsEqual与Hash个人理解</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-08T15:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="IsEqual与Hash个人理解"><a href="#IsEqual与Hash个人理解" class="headerlink" title="IsEqual与Hash个人理解"></a>IsEqual与Hash个人理解</h1><h2 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a>isEqual</h2><p>NSObject类的实例方法：<code>- (BOOL)isEqual:(id)object</code> 主要是根据对象的内存地址来判断两个对象是否相等，这里与<code>==</code> 效果相同。</p>
-<ul>
-<li><p>isEqualToString</p>
-<p>(BOOL)isEqualToString:(NSString *)aString 是NSString类的实例方法，它主要用于比较两个字符串中的内容是否相同，而非比较两个字符串所在内存地址。该方法常用。</p>
-</li>
-<li><p>自定义类的isEqual<br>在开发需求中，如果有比较两个类对象是否具有等同性时，通常会根据需求来对父类的isEqual进行改写，这里的做法通常是：</p>
-<ol>
-<li><p>先创建自定义的等同性判断方法，代码如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/IsEqual%E4%B8%8EHash%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Copy与mutableCopy的个人理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">Copy与mutableCopy的个人理解</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-02T17:06:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Copy与mutableCopy的个人理解"><a href="#Copy与mutableCopy的个人理解" class="headerlink" title="Copy与mutableCopy的个人理解"></a>Copy与mutableCopy的个人理解</h1><h2 id="1-相同点"><a href="#1-相同点" class="headerlink" title="1. 相同点"></a>1. 相同点</h2><ul>
-<li><p><strong>都是将原有对象进行深拷贝（狭义）</strong></p>
-<p><em>这里的狭义上的深拷贝指的是在不考虑编译器在编译时对不可变对象进行copy时采取的优化策略：即将不可变对象的地址直接赋值给拷贝对象，因为不可变对象无法进行修改，也就不存在拷贝后原值改变的情况，所以为了效率，即不再重新开辟空间，编译器对不可变对象采取了浅拷贝的方式</em>。</p>
-<blockquote>
-<p><strong>浅拷贝</strong> ：只是对指针的拷贝，拷贝后两个指针指向同一个内存空间。</p>
-<p><strong>深拷贝</strong> ：不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。</p>
-</blockquote>
-</li>
-<li><p><strong>都是为了防止因原对象改变而造成拷贝对象改变的策略</strong></p>
-<p><em>不可变对象除外</em>。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/Copy%E4%B8%8EmutableCopy%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -758,8 +390,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
